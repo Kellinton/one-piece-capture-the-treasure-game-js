@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+  <!-- settings -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capture o Tesouro!</title>
+
+  <link rel="shortcut icon" href="./src/images/favicon.png" type="image/x-icon">
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- styles -->
+  <link rel="stylesheet" href="./src/styles/reset.css">
+  <link rel="stylesheet" href="./src/styles/main.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="menu">
+      <div class="menu-time">
+        <h2>Tempo Restante</h2>
+        <h2 id="time-left">0</h2>
+      </div>
+      <div class="menu-score">
+        <h2>Pontuação</h2>
+        <h2 id="score">0</h2>
+      </div>
+      <div class="menu-lives">
+        <img src="./src/images/player.png" alt="foto do jogador" height="60px" />
+        <h2>x3</h2>
+      </div>
+    </div>
+
+    <video autoplay muted loop id="video-background">
+      <source src="./src/videos/thousand-sunny.960x540.mp4" type="video/mp4">
+  </video>
+
+  <div class="panel">
+    <div class="panel-row">
+      <div class="square " id="1"></div>
+      <div class="square" id="2"></div>
+      <div class="square" id="3"></div>
+    </div>
+
+    <div class="panel-row">
+      <div class="square tesouro" id="4"></div>
+      <div class="square" id="5"></div>
+      <div class="square" id="6"></div>
+      
+    </div>
+
+    <div class="panel-row">
+      <div class="square" id="7"></div>
+      <div class="square" id="8"></div>
+      <div class="square" id="9"></div>
+    </div>
+
+    <div class="panel-row">
+      <div class="square" id="10"></div>
+      <div class="square" id="11"></div>
+      <div class="square" id="12"></div>
+    </div>
+
+    <div class="panel-row">
+      <div class="square" id="13"></div>
+      <div class="square" id="14"></div>
+      <div class="square" id="15"></div>
+    </div>
+    <div class="ace">
+      <img src="./src/images/ace-fundo.png" alt="ace" height="700px">
+  </div>
+  </div>
+  
+</div>
+    
+  <script defer src="./src/scripts/engine.js"></script>
+</body>
+
+</html>
