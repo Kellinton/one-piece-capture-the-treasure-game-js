@@ -6,10 +6,11 @@ const state = {
     score: document.querySelector("#score"),
   },
   values: {
-    gameVelocity: 1000,
+    gameVelocity: 600,
     hitPosition: 0,
     result: 0,
     curretTime: 45,
+    lives: 4,
   },
   actions: {
     timerId: null,
@@ -34,6 +35,21 @@ startGame.addEventListener("click", function () {
   document.querySelector(".startButton").style.display = "none";
   document.querySelector(".container-button").style.display = "none";
 });
+
+function decreaseLives() {
+  state.values.lives--;
+
+  // Atualiza a exibição das vidas
+  document.getElementById("lives-count").textContent = `x${state.values.lives}`;
+
+  // Verifica se o jogador perdeu todas as vidas
+  if (state.values.lives <= 0) {
+    clearInterval(state.actions.countDownTimerId);
+    clearInterval(state.actions.timerId);
+    playGameOverMusic();
+    customizeGameOverAlert();
+  }
+}
 
 function playSoundtrack(audioName) {
   stopSoundtrack(); // Para garantir que a música anterior pare antes de tocar uma nova
@@ -104,18 +120,35 @@ function randomSquare() {
   state.values.hitPosition = randomSquare.id;
 }
 
+// function addListenerHitBox() {
+//   state.view.squares.forEach((square) => {
+//     square.addEventListener("mousedown", () => {
+//       if (square.id === state.values.hitPosition) {
+//         state.values.result++;
+//         state.view.score.textContent = state.values.result;
+//         state.values.hitPosition = null;
+//         playSound("hit");
+//       }
+//     });
+//   });
+// }
 function addListenerHitBox() {
   state.view.squares.forEach((square) => {
     square.addEventListener("mousedown", () => {
-      if (square.id === state.values.hitPosition) {
+      if (square.classList.contains("tesouro")) {
+        // Se a square clicada for um tesouro
         state.values.result++;
         state.view.score.textContent = state.values.result;
         state.values.hitPosition = null;
         playSound("hit");
+      } else {
+        // Se a square clicada não for um tesouro
+        decreaseLives();
       }
     });
   });
 }
+
 
 function initialize() {
   addListenerHitBox();
