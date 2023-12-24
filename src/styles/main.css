@@ -7,7 +7,30 @@
   overflow-y: hidden;
 
 }
-
+.startButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 30px;
+  font-size: 1.5rem;
+  background-color: #ffd700;
+  color: #1051b3;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.container-button {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  transition: all 0.5s;
+  background-image: url(../images/fundoInicio.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: 0.5s;
+}
 .menu {
   display: flex;
   justify-content: space-evenly;
@@ -68,4 +91,9 @@ video {
   position: absolute;
   left: -250px;
   z-index: -1;
+}
+
+
+.rounded-image {
+  border-radius: 10px;
 }
